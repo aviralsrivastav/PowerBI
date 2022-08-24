@@ -1,0 +1,28 @@
+def make_a_letter(term):
+    name,id1=term.split(":")
+    len1=len(name)
+    index=False
+    for i in id1:
+        if(i==str(len1)):
+            index=True
+            break
+    if(index):
+        return name[len1-1]
+    else:
+        max1=0
+        index=-1
+        for i in range(len(id1)):
+            if(len1>=int(id1[i]) and max1<int(id1[i])):
+                index=i
+                max1=int(id1[i])
+        if(index==-1):
+            return 'X'
+        else:
+            return name[max1-1]
+
+inp1=input()
+list1=inp1.split(",")
+str1=""
+for j in list1:
+    str1+=make_a_letter(j)
+print(str1)
